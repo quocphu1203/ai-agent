@@ -1,26 +1,26 @@
 # AI House Exterior Design Assistant
 
-Ứng dụng AI thiết kế ngoại thất nhà thông minh sử dụng **@openai/agents** framework.
+Smart AI-powered house exterior design application using the **@openai/agents** framework.
 
-## 🌟 Tính năng chính
+## 🌟 Key Features
 
-- **Phân tích ảnh ngôi nhà**: Upload ảnh và AI sẽ phân tích kiến trúc, phong cách
-- **Đề xuất cải thiện**: AI đưa ra 3-4 đề xuất cải thiện ngoại thất cụ thể
-- **Hình ảnh minh họa**: Mỗi đề xuất đi kèm ảnh minh họa
-- **Tạo ảnh hoàn chỉnh**: Kết hợp ảnh gốc với đề xuất tạo ra ảnh cuối
-- **Expert Assistant**: Tư vấn chuyên sâu với ước tính chi phí và thời gian
+- **House Image Analysis**: Upload images and AI will analyze architecture and style
+- **Improvement Suggestions**: AI provides 3-4 specific exterior improvement suggestions
+- **Illustrative Images**: Each suggestion comes with illustrative images
+- **Complete Image Generation**: Combines original image with suggestions to create final result
+- **Expert Assistant**: In-depth consultation with cost and time estimates
 
 ## 🤖 AI Agents
 
-Ứng dụng sử dụng **@openai/agents** framework với các agent chuyên biệt:
+The application uses the **@openai/agents** framework with specialized agents:
 
-1. **House Analysis Agent**: Phân tích ảnh và đưa ra đề xuất
-2. **Image Generator Agent**: Tạo ảnh hoàn chỉnh từ đề xuất
-3. **Expert Assistant Agent**: Tư vấn chuyên sâu với thông tin chi tiết
+1. **House Analysis Agent**: Analyzes images and provides suggestions
+2. **Image Generator Agent**: Creates complete images from suggestions
+3. **Expert Assistant Agent**: Provides in-depth consultation with detailed information
 
-## 🚀 Cài đặt và chạy
+## 🚀 Installation and Setup
 
-### 1. Clone và cài đặt dependencies
+### 1. Clone and install dependencies
 
 ```bash
 git clone <your-repo>
@@ -28,9 +28,9 @@ cd ai-agent
 npm install
 ```
 
-### 2. Cấu hình environment
+### 2. Environment configuration
 
-Tạo file `.env.local`:
+Create a `.env.local` file:
 
 ```bash
 # OpenAI API Key
@@ -40,42 +40,42 @@ OPENAI_API_KEY=your_openai_api_key_here
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 
-### 3. Chạy ứng dụng
+### 3. Run the application
 
 ```bash
 npm run dev
 ```
 
-Mở [http://localhost:3000](http://localhost:3000) để xem ứng dụng.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-## 📱 Cách sử dụng
+## 📱 How to Use
 
-### Bước 1: Upload ảnh ngôi nhà
-- Kéo thả ảnh vào vùng upload hoặc click "Chọn file"
-- Hỗ trợ định dạng JPG, PNG, GIF
+### Step 1: Upload house image
+- Drag and drop image into upload area or click "Choose file"
+- Supports JPG, PNG, GIF formats
 
-### Bước 2: Phân tích
-- Click "Phân tích ngôi nhà"
-- AI sẽ phân tích và hiển thị thông tin về:
-  - Mô tả kiến trúc
-  - Phong cách nhà
-  - Tình trạng hiện tại
+### Step 2: Analysis
+- Click "Analyze House"
+- AI will analyze and display information about:
+  - Architectural description
+  - House style
+  - Current condition
 
-### Bước 3: Chọn đề xuất
-- Xem danh sách đề xuất cải thiện
-- Mỗi đề xuất có ảnh minh họa và lý do
-- Click để chọn đề xuất ưa thích
+### Step 3: Select suggestions
+- View list of improvement suggestions
+- Each suggestion has illustrative image and reasoning
+- Click to select preferred suggestion
 
-### Bước 4: Tạo ảnh hoàn chỉnh
-- Click "Tạo ảnh hoàn chỉnh"
-- AI sẽ tạo ảnh ngôi nhà sau khi áp dụng cải thiện
-- So sánh ảnh trước và sau
-- Tải xuống kết quả
+### Step 4: Generate complete image
+- Click "Generate Complete Image"
+- AI will create image of house after applying improvements
+- Compare before and after images
+- Download results
 
 ## 🔧 API Endpoints
 
 ### `/api/analyze-house`
-**POST** - Phân tích ảnh ngôi nhà
+**POST** - Analyze house image
 
 Request:
 ```json
@@ -87,23 +87,23 @@ Request:
 Response:
 ```json
 {
-  "description": "Mô tả ngôi nhà",
-  "style": "Phong cách kiến trúc",
-  "condition": "Tình trạng",
+  "description": "House description",
+  "style": "Architectural style",
+  "condition": "Condition",
   "suggestions": [
     {
       "id": "unique_id",
-      "title": "Tiêu đề đề xuất",
-      "description": "Mô tả chi tiết",
-      "imageUrl": "URL ảnh minh họa",
-      "reasoning": "Lý do đề xuất"
+      "title": "Suggestion title",
+      "description": "Detailed description",
+      "imageUrl": "Illustrative image URL",
+      "reasoning": "Reasoning for suggestion"
     }
   ]
 }
 ```
 
 ### `/api/generate-final`
-**POST** - Tạo ảnh hoàn chỉnh
+**POST** - Generate complete image
 
 Request:
 ```json
@@ -111,8 +111,8 @@ Request:
   "originalImage": "data:image/jpeg;base64,..%",
   "suggestion": {
     "id": "suggestion_id",
-    "title": "Đề xuất được chọn",
-    "description": "Mô tả đề xuất"
+    "title": "Selected suggestion",
+    "description": "Suggestion description"
   }
 }
 ```
@@ -120,32 +120,32 @@ Request:
 Response:
 ```json
 {
-  "finalImageUrl": "URL ảnh cuối",
+  "finalImageUrl": "Final image URL",
   "appliedSuggestion": {...},
   "success": true
 }
 ```
 
 ### `/api/generate-final-assistant`
-**POST** - Expert Assistant với thông tin chi tiết
+**POST** - Expert Assistant with detailed information
 
 Request:
 ```json
 {
   "imageUrl": "data:image/jpeg;base64,...",
-  "userQuestion": "Câu hỏi cụ thể (optional)"
+  "userQuestion": "Specific question (optional)"
 }
 ```
 
-Response bao gồm thêm:
-- `estimatedCost`: Ước tính chi phí
-- `timeRequired`: Thời gian thực hiện
-- `environmentalImpact`: Tác động môi trường
-- `energyEfficiency`: Hiệu quả năng lượng
+Response includes additional:
+- `estimatedCost`: Cost estimate
+- `timeRequired`: Implementation time
+- `environmentalImpact`: Environmental impact
+- `energyEfficiency`: Energy efficiency
 
-## 🛠 Công nghệ sử dụng
+## 🛠 Technologies Used
 
-- **Framework**: Next.js 15 với App Router
+- **Framework**: Next.js 15 with App Router
 - **AI**: @openai/agents framework  
 - **UI**: React 19 + Tailwind CSS
 - **Language**: TypeScript
@@ -173,25 +173,25 @@ Response bao gồm thêm:
 ## 🎯 Agent System
 
 ### House Analysis Agent
-- **Vai trò**: Chuyên gia kiến trúc và thiết kế
-- **Nhiệm vụ**: Phân tích ảnh và đưa ra đề xuất
-- **Model**: GPT-4o với vision capabilities
+- **Role**: Architecture and design expert
+- **Task**: Analyze images and provide suggestions
+- **Model**: GPT-4o with vision capabilities
 
 ### Image Generator Agent  
-- **Vai trò**: Chuyên gia tạo ảnh và visual design
-- **Nhiệm vụ**: Tạo mô tả chi tiết cho ảnh cải thiện
+- **Role**: Image generation and visual design expert
+- **Task**: Create detailed descriptions for improvement images
 - **Model**: GPT-4o
 
 ### Expert Assistant Agent
-- **Vai trò**: Tư vấn viên chuyên sâu 
-- **Nhiệm vụ**: Phân tích toàn diện với chi phí, thời gian
-- **Model**: GPT-4o với enhanced instructions
+- **Role**: In-depth consultant
+- **Task**: Comprehensive analysis with cost, time information
+- **Model**: GPT-4o with enhanced instructions
 
 ## 📝 Development
 
-### Thêm Agent mới
+### Adding new Agent
 
-1. Tạo Agent trong API route:
+1. Create Agent in API route:
 ```typescript
 const newAgent = new Agent({
   name: "Agent Name",
@@ -200,18 +200,18 @@ const newAgent = new Agent({
 });
 ```
 
-2. Sử dụng trong API:
+2. Use in API:
 ```typescript
 const result = await run(newAgent, userInput);
 ```
 
 ### Customize UI
 
-Components được tổ chức trong `/app/components/`:
-- `ImageUpload.tsx` - Upload ảnh
-- `AnalysisDisplay.tsx` - Hiển thị phân tích  
-- `SuggestionsList.tsx` - Danh sách đề xuất
-- `FinalResult.tsx` - Kết quả cuối
+Components are organized in `/app/components/`:
+- `ImageUpload.tsx` - Image upload
+- `AnalysisDisplay.tsx` - Analysis display  
+- `SuggestionsList.tsx` - Suggestions list
+- `FinalResult.tsx` - Final results
 
 ## 📄 License
 
